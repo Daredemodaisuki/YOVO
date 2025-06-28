@@ -29,7 +29,7 @@ def main():
     root = os.path.abspath(os.path.dirname(__file__))
 
     train_yolo_model(dataset_dir=os.path.join(root, "dataset"),
-                     name='yolo_origin去小核C2fFasrer-',
+                     name='yolo_origin去小核C2fFasrer-150',
                      epochs=150,
                      imgsz=180,
                      batch=8)
