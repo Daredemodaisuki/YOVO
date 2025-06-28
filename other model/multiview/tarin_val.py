@@ -122,24 +122,36 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs, device, 
         val_loss /= len(val_loader)
         val_acc = correct / total if total > 0 else 0.0
 
-        # 打印统计信息
+        # 打印、保存统计信息
+        def append_text_to_file(text, file):
+            """
+            将给定的文本追加到文件的末尾新一行。如果文件或目录不存在，则创建它们。
+            """
+            os.makedirs(os.path.dirname(file), exist_ok=True)  # 确保目录存在
+            with open(file, 'a', encoding='utf-8') as f:
+                f.write(text + '\n')
+
+        
         print(f'\nEpoch {epoch + 1}/{num_epochs}:')
         print(f'Train Loss: {train_loss:.4f} | Val Loss: {val_loss:.4f} | Val Acc: {val_acc:.4f}')
+        append_text_to_file("Epoch{epoch}/{num_epochs}：Train Loss: {train_loss} | Val Loss: {val_loss} | Val Acc: {val_acc}".format(epoch=epoch + 1, num_epochs=num_epochs,
+            train_loss=train_loss, val_loss=val_loss, val_acc=val_acc),
+            "other model/multiview/runs/remote/recording.txt")
 
         # 保存最佳模型
         if val_acc > best_val_acc:
             best_val_acc = val_acc
-            torch.save(model.state_dict(), 'runs/remote/best_model.pth')
+            torch.save(model.state_dict(), 'other model/multiview/runs/remote/best_model_{epoch}_val-acc{acc}.pth'.format(epoch=epoch, acc=val_acc))
             print('Saved best model!')
 
     print(f'\nTraining complete. Best validation accuracy: {best_val_acc:.4f}')
 
 
 if __name__ == '__main__':
-    train_dir = "../../dataset/4char/train/images"
-    val_dir = "../../dataset/4char/val/images"
+    train_dir = "dataset/4char/train/images"
+    val_dir = "dataset/4char/val/images"
     batch_size = 32
-    epochs = 50
+    epochs = 800
     learning_rate = 0.0001
 
     # 检查目录是否存在
