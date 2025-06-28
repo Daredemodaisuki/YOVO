@@ -1,9 +1,11 @@
 # Keep local
 作废/
 文章和杂项/
+远程杂项/
 .idea/
 captcha_img/
 dataset/4char
+/__MACOSX
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
