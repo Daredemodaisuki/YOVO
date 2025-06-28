@@ -1,9 +1,0 @@
-文件夹名称统一记录训练结束之后的参数量。
-训练完后注意保存Validating runs/detect/yolo_origin去小核LSKA2/weights/best.pt...之后的验证见过，放进文件夹，存txt
-
-额外记录的训前参数量：
-去小核+LSKA（1024）：101 layers, 1,213,404 parameters, 1,213,388 gradients, 7.1 GFLOPs
-去小核+LSKA（512）：101 layers, 1,163,996 parameters, 1,163,980 gradients, 7.0 GFLOPs
-去小核+C2fFaster：104 layers, 828,204 parameters, 828,188 gradients, 5.3 GFLOPs
-去小核+复制第1层Conc（下标0）：98 layers, 1,095,420 parameters, 1,095,404 gradients, 1.9 GFLOPs
-去小核+C2fFaster+AFFN：
