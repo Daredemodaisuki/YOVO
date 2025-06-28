@@ -7,9 +7,9 @@ import shutil
 
 
 # 训练
-def train_yolo_model(model_path, dataset_dir, name, epochs=50, imgsz=640, batch=8, remote=True):
+def train_yolo_model(dataset_dir, name, epochs=50, imgsz=640, batch=8, remote=True):
     # model = YOLO('yolov8n.pt')  # 加载预训练模型（yolov8n.pt是小模型，适合快速训练）
-    model = YOLO(model_path)
+    model = YOLO('yaml/yolov8n (nc=62) - 去小核 - C2fFaster.yaml')
     # 训练模型
     results = model.train(
         data=os.path.join(dataset_dir, 'data.yaml'),
@@ -28,13 +28,11 @@ def train_yolo_model(model_path, dataset_dir, name, epochs=50, imgsz=640, batch=
 def main():
     root = os.path.abspath(os.path.dirname(__file__))
 
-    train_yolo_model(model_path='yaml/yolov8n (nc=62) - 去小核 - C2fFaster.yaml',
-                     dataset_dir=os.path.join(root, "dataset"),
-                     name='yolo_origin',
+    train_yolo_model(dataset_dir=os.path.join(root, "dataset"),
+                     name='yolo_origin去小核C2fFasrer-',
                      epochs=150,
-                     imgsz=196,
-                     batch=8,
-                     remote=True)
+                     imgsz=180,
+                     batch=8)
 
 
 if __name__ == '__main__':
