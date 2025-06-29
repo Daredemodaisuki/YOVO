@@ -2,9 +2,9 @@
 作废/
 文章和杂项/
 远程杂项/
-.idea/
 captcha_img/
 dataset/4char
+**/predictions/
 __MACOSX/
 
 # Byte-compiled / optimized / DLL files
@@ -166,4 +166,4 @@ cython_debug/
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+.idea/
