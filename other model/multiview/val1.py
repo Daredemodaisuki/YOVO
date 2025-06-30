@@ -94,7 +94,8 @@ def predict_images(model, img_dir, result_file, batch_size=64, device='cuda'):
                         correct_images += 1
 
                     # 字符级统计（LCS）
-                    total_chars += lcs_length(pred, true_label)
+                    correct_chars += lcs_length(pred, true_label)
+                    total_chars += len(true_label)
 
                     # 统计长度错误
                     if len(pred) != len(true_label):
@@ -122,8 +123,8 @@ def predict_images(model, img_dir, result_file, batch_size=64, device='cuda'):
 def main():
     # ===== 参数配置 =====
     MODEL_PATH = './runs/remote/2/best_model_132_val-acc0.87725.pth'  # 模型权重路径
-    IMAGE_DIR = '../../captcha_img/[TestSet]40000pic_200x100_3-6char'  # 验证码图片目录
-    RESULT_FILE = './runs/local/test/1/结果.txt'  # 结果输出文件
+    IMAGE_DIR = '../../dataset/3-6char/val/images'  # 验证码图片目录
+    RESULT_FILE = './runs/local/test/3-4训测6/结果.txt'  # 结果输出文件
     CHAR_SET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'  # 字符集
     BATCH_SIZE = 64  # 批处理大小
     IMG_SIZE = (100, 200)  # 图像尺寸 (高, 宽)

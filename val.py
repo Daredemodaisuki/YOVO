@@ -126,8 +126,8 @@ if __name__ == "__main__":
     weights_path = "runs/remote/detect/" \
                    "yolo_origin去小核C2fFaster（0.985-0.986, 69 layers, 825,372 parameters, 0 gradients, 5.2 GFLOPs）/" \
                    "weights/best.pt"
-    img_dir = "200x100_5chars"
-    source_dir = "captcha_img/" + img_dir + "/"
+    img_dir = "images"
+    source_dir = "dataset/4char/val/" + img_dir + "/"
     output_dir = "runs/local/test/" + img_dir + "-" + str(time.mktime(time.localtime())) + "/"
     detect_images(weights_path, source_dir, output_dir)
 
