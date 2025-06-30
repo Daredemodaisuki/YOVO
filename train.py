@@ -12,7 +12,7 @@ def train_yolo_model(dataset_dir, name, epochs=50, imgsz=640, batch=8, remote=Tr
     model = YOLO('yaml/yolov8n (nc=62) - 去小核 - C2fFaster.yaml')
     # 训练模型
     results = model.train(
-        data=os.path.join(dataset_dir, 'data.yaml'),
+        data=os.path.join(dataset_dir, 'data_B.yaml'),
         epochs=epochs,
         imgsz=imgsz,
         batch=batch,
@@ -30,7 +30,7 @@ def main():
 
     train_yolo_model(dataset_dir=os.path.join(root, "dataset"),
                      name='yolo_origin去小核C2fFasrer-150',
-                     epochs=150,
+                     epochs=100,
                      imgsz=196,
                      batch=16)
 

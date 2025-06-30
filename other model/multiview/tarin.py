@@ -153,10 +153,10 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs, device, 
 
 
 if __name__ == '__main__':
-    train_dir = "dataset/4char/train/images"
-    val_dir = "dataset/4char/val/images"
+    train_dir = "dataset/3-6char/train/images"
+    val_dir = "dataset/3-6char/val/images"
     batch_size = 32
-    epochs = 150
+    epochs = 250
     learning_rate = 0.0001
 
     # 检查目录是否存在
