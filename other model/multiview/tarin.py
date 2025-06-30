@@ -145,7 +145,7 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs, device, 
         if val_acc > best_val_acc:
             best_val_acc = val_acc
             torch.save(model.state_dict(),
-                       'other model/multiview/runs/best_model_{epoch}_val-acc{acc}.pth'.format(epoch=epoch + 1,
+                       'other model/multiview/runs/remote/best_model_{epoch}_val-acc{acc}.pth'.format(epoch=epoch + 1,
                                                                                                acc=val_acc))
             print('Saved best model!')
 
@@ -156,7 +156,7 @@ if __name__ == '__main__':
     train_dir = "dataset/4char/train/images"
     val_dir = "dataset/4char/val/images"
     batch_size = 32
-    epochs = 10
+    epochs = 150
     learning_rate = 0.0001
 
     # 检查目录是否存在

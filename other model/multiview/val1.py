@@ -121,7 +121,7 @@ def predict_images(model, img_dir, result_file, batch_size=64, device='cuda'):
 
 def main():
     # ===== 参数配置 =====
-    MODEL_PATH = './runs/remote/1/best_model_121_val-acc0.8105.pth'  # 模型权重路径
+    MODEL_PATH = './runs/remote/2/best_model_132_val-acc0.87725.pth'  # 模型权重路径
     IMAGE_DIR = '../../captcha_img/[TestSet]40000pic_200x100_3-6char'  # 验证码图片目录
     RESULT_FILE = './runs/local/test/1/结果.txt'  # 结果输出文件
     CHAR_SET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'  # 字符集
