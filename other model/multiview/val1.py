@@ -5,6 +5,7 @@ import torch
 from torch.utils.data import Dataset
 from multiview import MultiViewCAPTCHANet, ctc_decode, decode_predictions
 from tqdm import tqdm
+import difflib
 
 
 class PredictionDataset(Dataset):
@@ -66,6 +67,12 @@ def predict_images(model, img_dir, result_file, batch_size=64, device='cuda'):
 
     with open(result_file, 'w', encoding='utf-8') as f_out:
         model.eval()
+
+        def lcs_length(a, b):
+            """计算两个字符串的最长公共子序列长度"""
+            matcher = difflib.SequenceMatcher(None, a, b)
+            return matcher.find_longest_match(0, len(a), 0, len(b)).size
+
         with torch.no_grad():
             for views, true_labels, filenames in tqdm(loader, desc='预测进度'):
                 views = views.to(device)
@@ -86,12 +93,8 @@ def predict_images(model, img_dir, result_file, batch_size=64, device='cuda'):
                     if pred == true_label:
                         correct_images += 1
 
-                    # 字符级统计
-                    min_len = min(len(pred), len(true_label))
-                    for i in range(min_len):
-                        if pred[i] == true_label[i]:
-                            correct_chars += 1
-                    total_chars += len(true_label)
+                    # 字符级统计（LCS）
+                    total_chars += lcs_length(pred, true_label)
 
                     # 统计长度错误
                     if len(pred) != len(true_label):
