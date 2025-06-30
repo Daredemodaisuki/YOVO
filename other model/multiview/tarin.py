@@ -11,7 +11,7 @@ from tqdm import tqdm  # 导入tqdm库
 def custom_collate_fn(batch):
     """自定义collate函数，正确处理多视图数据"""
     # 解压批处理数据
-    views_list, labels_list = zip(*batch)
+    views_list, labels_list, label_lengths = zip(*batch)  # 新增获取标签长度
 
     # 确定视图数量和图像尺寸
     num_views = views_list[0].shape[0]  # 每个样本有num_views个视图
@@ -33,7 +33,10 @@ def custom_collate_fn(batch):
         padding_value=0
     )
 
-    return views_tensor, labels
+    # 将标签长度转换为Tensor
+    label_lengths = torch.tensor(label_lengths, dtype=torch.long)
+
+    return views_tensor, labels, label_lengths
 
 
 def train_model(model, train_loader, val_loader, optimizer, num_epochs, device, char_set):
@@ -53,17 +56,15 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs, device, 
 
         # 使用tqdm包装训练数据加载器
         train_loop = tqdm(train_loader, desc=f"Epoch {epoch + 1}/{num_epochs} [Train]", leave=True)
-        for views, labels in train_loop:
-            # 将数据移动到设备
+        for views, labels, label_lengths in train_loop:  # 接收标签长度
             views = views.to(device)
             labels = labels.to(device)
-            batch_size = views.size(0)
+            label_lengths = label_lengths.to(device)  # 实际标签长度
 
-            # 标签长度固定为4
-            target_lengths = torch.full((batch_size,), 4, dtype=torch.long).to(device)
-
+            # 标签长度固定为4改为基于模型输出
+            input_lengths = torch.full((views.size(0),), model.get_seq_length(), dtype=torch.long).to(device)
             # 前向传播
-            _, loss = model(views, labels, target_lengths)
+            _, loss = model(views, labels, input_lengths, label_lengths)  # 传递两个长度参数
 
             # 反向传播
             optimizer.zero_grad()
@@ -85,14 +86,16 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs, device, 
         # 使用tqdm包装验证数据加载器
         val_loop = tqdm(val_loader, desc=f"Epoch {epoch + 1}/{num_epochs} [Val]", leave=True)
         with torch.no_grad():
-            for views, labels in val_loop:
+            for views, labels, label_lengths in val_loop:  # 接收标签长度
                 views = views.to(device)
                 labels = labels.to(device)
-                batch_size = views.size(0)
-                target_lengths = torch.full((batch_size,), 4, dtype=torch.long).to(device)
+                label_lengths = label_lengths.to(device)
+
+                # 输入长度
+                input_lengths = torch.full((views.size(0),), model.get_seq_length(), dtype=torch.long).to(device)
 
                 # 计算损失
-                logits, loss = model(views, labels, target_lengths)
+                logits, loss = model(views, labels, input_lengths, label_lengths)
                 val_loss += loss.item()
 
                 # 解码预测
@@ -103,11 +106,10 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs, device, 
                 pred_strings = decode_predictions(predictions.cpu(), idx2char)
 
                 # 计算准确率
-                for i in range(batch_size):
+                for i in range(views.size(0)):
                     true_label = labels[i]
-                    # 移除填充值 (0)
-                    valid_indices = true_label != 0
-                    true_chars = true_label[valid_indices]
+                    # 只取实际长度部分（非填充部分）
+                    true_chars = true_label[:label_lengths[i]]
                     true_string = ''.join([idx2char[idx.item()] for idx in true_chars])
 
                     if pred_strings[i] == true_string:
@@ -131,17 +133,20 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs, device, 
             with open(file, 'a', encoding='utf-8') as f:
                 f.write(text + '\n')
 
-        
         print(f'\nEpoch {epoch + 1}/{num_epochs}:')
         print(f'Train Loss: {train_loss:.4f} | Val Loss: {val_loss:.4f} | Val Acc: {val_acc:.4f}')
-        append_text_to_file("Epoch{epoch}/{num_epochs}：Train Loss: {train_loss} | Val Loss: {val_loss} | Val Acc: {val_acc}".format(epoch=epoch + 1, num_epochs=num_epochs,
-            train_loss=train_loss, val_loss=val_loss, val_acc=val_acc),
-            "other model/multiview/runs/remote/recording.txt")
+        append_text_to_file("Epoch{epoch}/{num_epochs}："
+                            "Train Loss: {train_loss} | Val Loss: {val_loss}"
+                            " | Val Acc: {val_acc}".format(epoch=epoch + 1, num_epochs=num_epochs,
+                                                           train_loss=train_loss, val_loss=val_loss, val_acc=val_acc),
+                            "other model/multiview/runs/remote/recording.txt")
 
         # 保存最佳模型
         if val_acc > best_val_acc:
             best_val_acc = val_acc
-            torch.save(model.state_dict(), 'other model/multiview/runs/remote/best_model_{epoch}_val-acc{acc}.pth'.format(epoch=epoch, acc=val_acc))
+            torch.save(model.state_dict(),
+                       'other model/multiview/runs/best_model_{epoch}_val-acc{acc}.pth'.format(epoch=epoch + 1,
+                                                                                               acc=val_acc))
             print('Saved best model!')
 
     print(f'\nTraining complete. Best validation accuracy: {best_val_acc:.4f}')
@@ -151,7 +156,7 @@ if __name__ == '__main__':
     train_dir = "dataset/4char/train/images"
     val_dir = "dataset/4char/val/images"
     batch_size = 32
-    epochs = 800
+    epochs = 10
     learning_rate = 0.0001
 
     # 检查目录是否存在
@@ -166,7 +171,7 @@ if __name__ == '__main__':
     print(f"训练轮数: {epochs}")
     print(f"学习率: {learning_rate}")
 
-    char_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcedfghijklmnopqrstuvwxyz0123456789"
+    char_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
     img_size = (100, 200)  # 图像尺寸
     num_views = 3  # 三种处理视图
 

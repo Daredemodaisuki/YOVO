@@ -1,6 +1,7 @@
 import time
 from ultralytics import YOLO
 import os
+import difflib
 
 
 def detect_images(
@@ -62,6 +63,11 @@ def calculate_acc(results_dir, class_file, output_file='结果.txt'):
     total_texts = len(label_files)
 
     with open(output_file, 'w', encoding='utf-8') as out_f:
+        def lcs_length(a, b):
+            """计算两个字符串的最长公共子序列长度"""
+            matcher = difflib.SequenceMatcher(None, a, b)
+            return matcher.find_longest_match(0, len(a), 0, len(b)).size
+
         # 处理每个标签文件
         for label_file in label_files:
             img_name = os.path.splitext(label_file)[0]  # 原图片文件名（不带扩展名的label txt名）
@@ -85,16 +91,11 @@ def calculate_acc(results_dir, class_file, output_file='结果.txt'):
                 total_chars += len(ground_truth)
                 correct_texts += 1
             else:
-                correct = 0
                 if len(predicted_seq) != len(ground_truth):
                     incorrect_char_num_texts += 1
                     # 因为识别字符数目不正确导致的False
-                    min_len = min(len(predicted_seq), len(ground_truth))
-                else:
-                    min_len = len(predicted_seq)
-                for i in range(min_len):
-                    if predicted_seq[i] == ground_truth[i]:
-                        correct += 1
+                    # min_len = min(len(predicted_seq), len(ground_truth))
+                correct = lcs_length(ground_truth, predicted_seq)  # 取最大公共子序列长度
                 correct_chars += correct
                 total_chars += len(ground_truth)
                 # 并非完全正确，correct_texts不增加
@@ -125,7 +126,7 @@ if __name__ == "__main__":
     weights_path = "runs/remote/detect/" \
                    "yolo_origin去小核C2fFaster（0.985-0.986, 69 layers, 825,372 parameters, 0 gradients, 5.2 GFLOPs）/" \
                    "weights/best.pt"
-    img_dir = "[TestSet]40000pic_200x100_3-6char"
+    img_dir = "200x100_5chars"
     source_dir = "captcha_img/" + img_dir + "/"
     output_dir = "runs/local/test/" + img_dir + "-" + str(time.mktime(time.localtime())) + "/"
     detect_images(weights_path, source_dir, output_dir)

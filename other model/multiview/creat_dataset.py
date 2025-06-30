@@ -67,15 +67,17 @@ class CAPTCHADataset(Dataset):
         # 添加通道维度 (3, 1, H, W)
         views = views[:, np.newaxis, :, :]
 
-        # 从文件名获取标签 (前4字符)
-        label_str = os.path.splitext(self.filenames[idx])[0][:4]
+        # 从文件名获取标签：第一个'_'前的部分
+        filename_without_ext = os.path.splitext(self.filenames[idx])[0]
+        label_str = filename_without_ext.split('_')[0]  # 取第一个下划线前的部分
+
         label = [self.char2idx[c] for c in label_str]
 
         # 转换为Tensor
         views_tensor = torch.tensor(views, dtype=torch.float32) / 255.0
         label_tensor = torch.tensor(label, dtype=torch.long)
 
-        return views_tensor, label_tensor
+        return views_tensor, label_tensor, len(label_str)  # 返回标签长度
 
     def get_char_mappings(self):
         """返回字符映射字典"""

@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+
 # 尝试复现Mukhtar Opeyemi Yusuf的Multiview deep learning‑based attack to break text‑CAPTCHAs
 class MultiViewCAPTCHANet(nn.Module):
     def __init__(self, num_views, num_chars, img_size=(100, 200), hidden_size=128):
@@ -47,7 +48,12 @@ class MultiViewCAPTCHANet(nn.Module):
         self.ctc_classifier = nn.Linear(256, num_chars)
         self.ctc_loss = nn.CTCLoss(blank=0)
 
-    def forward(self, x, targets=None, target_lengths=None):
+    def get_seq_length(self):
+        """获取序列长度（基于卷积输出）"""
+        conv_output_w = self.img_size[1] // 4  # 经过两次2x2池化
+        return conv_output_w
+
+    def forward(self, x, targets=None, input_lengths=None, target_lengths=None):
         batch_size, num_views, C, H, W = x.shape
         view_outputs = []
 
@@ -73,12 +79,15 @@ class MultiViewCAPTCHANet(nn.Module):
         log_probs = F.log_softmax(logits, dim=2)
 
         if targets is not None:
-            input_lengths = torch.full((batch_size,), logits.size(1), dtype=torch.long)
+            # 确保长度参数正确
+            assert input_lengths is not None and target_lengths is not None, \
+                "需要提供输入和目标的长度"
+
             loss = self.ctc_loss(
                 log_probs.permute(1, 0, 2),  # [T, B, C]
                 targets,
-                input_lengths,
-                target_lengths
+                input_lengths,  # 输入序列长度
+                target_lengths  # 目标标签长度
             )
             return logits, loss
 
