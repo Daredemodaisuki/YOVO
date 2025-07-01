@@ -106,29 +106,29 @@ def calculate_acc(results_dir, class_file, output_file='结果.txt'):
         # 计算并写入正确率
         if total_chars > 0:
             char_accuracy = correct_chars / total_chars
-            out_f.write(f"字符准确率（char_accuracy）：{char_accuracy:.6f} | ")
+            out_f.write(f"字符准确率（char_accuracy）：{char_accuracy:.6f}\n")
         else:
-            out_f.write("字符准确率（char_accuracy）：0.000000 | ")
-        if incorrect_char_num_texts > 0:
-            incorrect_char_num_texts_ = incorrect_char_num_texts / total_texts
-            out_f.write(f"字符数识别不准确率：{incorrect_char_num_texts_:.6f} | ")
-        else:
-            out_f.write("字符准确率（char_accuracy）：0.000000 | ")
+            out_f.write("字符准确率（char_accuracy）：0.000000\n")
         if total_texts > 0:
             text_accuracy = correct_texts / total_texts
             out_f.write(f"全图准确率（text_accuracy）：{text_accuracy:.6f}\n")
         else:
             out_f.write("全图准确率（text_accuracy）：0.000000\n")
+        if incorrect_char_num_texts > 0:
+            incorrect_char_num_texts_ = incorrect_char_num_texts / total_texts
+            out_f.write(f"字符数识别准确率：{1 - incorrect_char_num_texts_:.6f}\n")
+        else:
+            out_f.write("字符准确率（char_accuracy）：1.000000\n")
+        out_f.write(weights_path + "\n" + source_dir + "\n")
 
 
 if __name__ == "__main__":
     # 检测
-    weights_path = "runs/remote/detect/" \
-                   "yolo_origin去小核C2fFaster-B100（0.984-0.986, 69 layers, 825,372 parameters, 0 gradients, 5.2 GFLOPs）/" \
-                   "weights/best.pt"
+    weight_model = "yolo_origin3（云端，关闭镜像72 layers, 3,017,738 parameters, 0 gradients, 8.2 GFLOPs）"
+    weights_path = "runs/remote/old/" + weight_model + "/weights/best.pt"
     img_dir = "images"
-    source_dir = "dataset/4-6char/val/" + img_dir + "/"
-    output_dir = "runs/local/test/" + img_dir + "-" + str(time.mktime(time.localtime())) + "/"
+    source_dir = "dataset/4char/val/" + img_dir + "/"
+    output_dir = "runs/local/test/" + img_dir + "-" + weight_model + str(time.mktime(time.localtime())) + "/"
     detect_images(weights_path, source_dir, output_dir)
 
     # 准确率
