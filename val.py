@@ -124,10 +124,10 @@ def calculate_acc(results_dir, class_file, output_file='结果.txt'):
 if __name__ == "__main__":
     # 检测
     weights_path = "runs/remote/detect/" \
-                   "yolo_origin去小核C2fFaster（0.985-0.986, 69 layers, 825,372 parameters, 0 gradients, 5.2 GFLOPs）/" \
+                   "yolo_origin去小核C2fFaster-B100（0.985-0.986, 69 layers, 825,372 parameters, 0 gradients, 5.2 GFLOPs）/" \
                    "weights/best.pt"
     img_dir = "images"
-    source_dir = "dataset/4char/val/" + img_dir + "/"
+    source_dir = "dataset/4-6char/val/" + img_dir + "/"
     output_dir = "runs/local/test/" + img_dir + "-" + str(time.mktime(time.localtime())) + "/"
     detect_images(weights_path, source_dir, output_dir)
 
