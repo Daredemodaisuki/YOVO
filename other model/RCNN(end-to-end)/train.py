@@ -24,6 +24,10 @@ model = CRNN(NUM_CHARS).to(DEVICE)
 optimizer = Adam(model.parameters(), lr=LR)
 criterion = nn.CTCLoss(blank=NUM_CHARS)
 
+# 微调
+checkpoint_path = 'other model/RCNN(end-to-end)/runs/remote/1/best_model_epoch13_val-acc0.9403.pth'
+model.load_state_dict(torch.load(checkpoint_path, map_location=DEVICE))
+
 
 # 数据加载
 train_loader = create_data_loader(TRAIN_DIR, CHARSET, BATCH_SIZE)

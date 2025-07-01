@@ -14,15 +14,15 @@ import difflib
 # 配置参数
 class Config:
     # 数据路径
-    TRAIN_DIR = "../../dataset/4char/train/images"
-    VAL_DIR = "../../dataset/4char/val/images"
-    SAVE_DIR = "./runs/local/2"
-    LOG_FILE = "runs/local/2/recording.txt"
+    TRAIN_DIR = "dataset/4char/train/images"
+    VAL_DIR = "dataset/4char/val/images"
+    SAVE_DIR = "other model/ConvNet/runs/remote/2"
+    LOG_FILE = "other model/ConvNet/runs/remote/2/recording.txt"
 
     # 训练参数
     NUM_EPOCHS = 250
     BATCH_SIZE = 32
-    LR = 0.0003
+    LR = 0.0007
     MOMENTUM = 0.99
     NUM_WORKERS = 4
 
@@ -271,7 +271,7 @@ def main():
 
     # 自适应学习率调整
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer, mode='max', factor=0.5, patience=5, verbose=True
+        optimizer, mode='max', factor=0.5, patience=5  # , verbose=True
     )
 
     # 训练循环

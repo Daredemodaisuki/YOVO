@@ -1,0 +1,120 @@
+CAPTCHA Recognition Training Log
+==================================================
+Device: cuda
+Number of epochs: 250
+Batch size: 32
+Learning rate: 0.0007
+
+Epoch 1/250: 
+Train loss: 14.4878 | Train acc: 0.0024 | Train ChAR: 0.1550
+Val loss: 10.4012 | Val acc: 0.0217 | Val ChAR: 0.3233
+Time: 87.01s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch1_val-acc0.0217.pth
+Epoch 2/250: 
+Train loss: 6.8300 | Train acc: 0.1864 | Train ChAR: 0.5216
+Val loss: 4.2929 | Val acc: 0.4007 | Val ChAR: 0.6936
+Time: 85.48s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch2_val-acc0.4007.pth
+Epoch 3/250: 
+Train loss: 3.1388 | Train acc: 0.5096 | Train ChAR: 0.7594
+Val loss: 2.4888 | Val acc: 0.5520 | Val ChAR: 0.7899
+Time: 85.24s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch3_val-acc0.5520.pth
+Epoch 4/250: 
+Train loss: 2.0201 | Train acc: 0.6403 | Train ChAR: 0.8332
+Val loss: 2.0404 | Val acc: 0.6140 | Val ChAR: 0.8260
+Time: 85.25s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch4_val-acc0.6140.pth
+Epoch 5/250: 
+Train loss: 1.4882 | Train acc: 0.7165 | Train ChAR: 0.8733
+Val loss: 1.4727 | Val acc: 0.7070 | Val ChAR: 0.8682
+Time: 85.26s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch5_val-acc0.7070.pth
+Epoch 6/250: 
+Train loss: 1.2028 | Train acc: 0.7598 | Train ChAR: 0.8973
+Val loss: 1.4163 | Val acc: 0.7180 | Val ChAR: 0.8728
+Time: 85.24s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch6_val-acc0.7180.pth
+Epoch 7/250: 
+Train loss: 0.9989 | Train acc: 0.7913 | Train ChAR: 0.9135
+Val loss: 1.1882 | Val acc: 0.7545 | Val ChAR: 0.8902
+Time: 85.23s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch7_val-acc0.7545.pth
+Epoch 8/250: 
+Train loss: 0.8267 | Train acc: 0.8217 | Train ChAR: 0.9289
+Val loss: 1.1022 | Val acc: 0.7658 | Val ChAR: 0.8985
+Time: 85.28s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch8_val-acc0.7658.pth
+Epoch 9/250: 
+Train loss: 0.7038 | Train acc: 0.8464 | Train ChAR: 0.9398
+Val loss: 0.9727 | Val acc: 0.7905 | Val ChAR: 0.9096
+Time: 85.22s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch9_val-acc0.7905.pth
+Epoch 10/250: 
+Train loss: 0.6280 | Train acc: 0.8616 | Train ChAR: 0.9479
+Val loss: 0.9393 | Val acc: 0.7885 | Val ChAR: 0.9093
+Time: 85.20s
+Epoch 11/250: 
+Train loss: 0.5429 | Train acc: 0.8819 | Train ChAR: 0.9575
+Val loss: 0.9764 | Val acc: 0.7880 | Val ChAR: 0.9083
+Time: 85.34s
+Epoch 12/250: 
+Train loss: 0.5220 | Train acc: 0.8824 | Train ChAR: 0.9577
+Val loss: 0.9539 | Val acc: 0.7880 | Val ChAR: 0.9094
+Time: 85.21s
+Epoch 13/250: 
+Train loss: 0.4922 | Train acc: 0.8874 | Train ChAR: 0.9594
+Val loss: 0.8969 | Val acc: 0.8010 | Val ChAR: 0.9135
+Time: 85.26s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch13_val-acc0.8010.pth
+Epoch 14/250: 
+Train loss: 0.4396 | Train acc: 0.8998 | Train ChAR: 0.9652
+Val loss: 0.8769 | Val acc: 0.8130 | Val ChAR: 0.9196
+Time: 85.22s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch14_val-acc0.8130.pth
+Epoch 15/250: 
+Train loss: 0.3781 | Train acc: 0.9138 | Train ChAR: 0.9720
+Val loss: 0.8712 | Val acc: 0.8100 | Val ChAR: 0.9187
+Time: 85.29s
+Epoch 16/250: 
+Train loss: 0.3576 | Train acc: 0.9184 | Train ChAR: 0.9738
+Val loss: 0.8769 | Val acc: 0.8067 | Val ChAR: 0.9173
+Time: 85.31s
+Epoch 17/250: 
+Train loss: 0.3560 | Train acc: 0.9170 | Train ChAR: 0.9728
+Val loss: 0.9366 | Val acc: 0.7995 | Val ChAR: 0.9163
+Time: 85.26s
+Epoch 18/250: 
+Train loss: 0.3002 | Train acc: 0.9336 | Train ChAR: 0.9792
+Val loss: 0.8526 | Val acc: 0.8183 | Val ChAR: 0.9218
+Time: 85.27s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch18_val-acc0.8183.pth
+Epoch 19/250: 
+Train loss: 0.2885 | Train acc: 0.9337 | Train ChAR: 0.9793
+Val loss: 0.8919 | Val acc: 0.8060 | Val ChAR: 0.9153
+Time: 85.34s
+Epoch 20/250: 
+Train loss: 0.2558 | Train acc: 0.9428 | Train ChAR: 0.9828
+Val loss: 0.8783 | Val acc: 0.8260 | Val ChAR: 0.9237
+Time: 85.37s
+Saved best model: other model/ConvNet/runs/remote/2/best_model_epoch20_val-acc0.8260.pth
+Epoch 21/250: 
+Train loss: 0.2338 | Train acc: 0.9474 | Train ChAR: 0.9843
+Val loss: 0.9603 | Val acc: 0.8035 | Val ChAR: 0.9172
+Time: 85.30s
+Epoch 22/250: 
+Train loss: 0.2282 | Train acc: 0.9476 | Train ChAR: 0.9843
+Val loss: 0.9641 | Val acc: 0.8143 | Val ChAR: 0.9200
+Time: 85.27s
+Epoch 23/250: 
+Train loss: 0.2146 | Train acc: 0.9507 | Train ChAR: 0.9849
+Val loss: 0.9998 | Val acc: 0.8047 | Val ChAR: 0.9163
+Time: 85.31s
+Epoch 24/250: 
+Train loss: 0.1956 | Train acc: 0.9564 | Train ChAR: 0.9865
+Val loss: 0.9436 | Val acc: 0.8123 | Val ChAR: 0.9208
+Time: 85.30s
+Epoch 25/250: 
+Train loss: 0.1798 | Train acc: 0.9601 | Train ChAR: 0.9876
+Val loss: 0.9553 | Val acc: 0.8187 | Val ChAR: 0.9219
+Time: 85.27s
