@@ -1,0 +1,17 @@
+CAPTCHA Recognition Training Log
+==================================================
+Device: cuda
+Number of epochs: 250
+Batch size: 32
+Learning rate: 0.0003
+
+Epoch 1/250: Train Loss: 15.6941 | Train Acc: 0.0001 | Val Loss: 13.4990 | Val Acc: 0.0010 | Time: 162.70s
+Saved best model: ./runs/local/1\best_model_epoch1_val-acc0.0010.pth
+Epoch 2/250: Train Loss: 10.6086 | Train Acc: 0.0504 | Val Loss: 7.7006 | Val Acc: 0.1648 | Time: 163.35s
+Saved best model: ./runs/local/1\best_model_epoch2_val-acc0.1648.pth
+Epoch 3/250: Train Loss: 5.6589 | Train Acc: 0.3392 | Val Loss: 4.0565 | Val Acc: 0.4908 | Time: 162.17s
+Saved best model: ./runs/local/1\best_model_epoch3_val-acc0.4908.pth
+Epoch 4/250: Train Loss: 3.2148 | Train Acc: 0.5579 | Val Loss: 2.6698 | Val Acc: 0.5717 | Time: 163.24s
+Saved best model: ./runs/local/1\best_model_epoch4_val-acc0.5717.pth
+Epoch 5/250: Train Loss: 2.1872 | Train Acc: 0.6671 | Val Loss: 1.8627 | Val Acc: 0.6955 | Time: 165.59s
+Saved best model: ./runs/local/1\best_model_epoch5_val-acc0.6955.pth
