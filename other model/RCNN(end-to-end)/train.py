@@ -11,11 +11,11 @@ from tqdm import tqdm
 # 配置参数
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 BATCH_SIZE = 32
-LR = 0.0007
-EPOCHS = 50
-TRAIN_DIR = '../../dataset/4char/train/images'
-VAL_DIR = '../../dataset/4char/val/images'
-SAVE_DIR = './runs'
+LR = 0.00025
+EPOCHS = 250
+TRAIN_DIR = 'dataset/4char/train/images'
+VAL_DIR = 'dataset/4char/val/images'
+SAVE_DIR = 'other model/RCNN(end-to-end)/runs/remote'
 LOG_FILE = os.path.join(SAVE_DIR, 'recording.txt')
 os.makedirs(SAVE_DIR, exist_ok=True)
 
@@ -23,6 +23,7 @@ os.makedirs(SAVE_DIR, exist_ok=True)
 model = CRNN(NUM_CHARS).to(DEVICE)
 optimizer = Adam(model.parameters(), lr=LR)
 criterion = nn.CTCLoss(blank=NUM_CHARS)
+
 
 # 数据加载
 train_loader = create_data_loader(TRAIN_DIR, CHARSET, BATCH_SIZE)
