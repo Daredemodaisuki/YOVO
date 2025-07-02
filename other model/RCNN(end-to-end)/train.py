@@ -11,11 +11,11 @@ from tqdm import tqdm
 # 配置参数
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 BATCH_SIZE = 32
-LR = 0.00025
-EPOCHS = 250
+LR = 0.00035
+EPOCHS = 160
 TRAIN_DIR = 'dataset/4char/train/images'
 VAL_DIR = 'dataset/4char/val/images'
-SAVE_DIR = 'other model/RCNN(end-to-end)/runs/remote'
+SAVE_DIR = 'other model/RCNN(end-to-end)/runs/remote/4-重新4训'
 LOG_FILE = os.path.join(SAVE_DIR, 'recording.txt')
 os.makedirs(SAVE_DIR, exist_ok=True)
 
@@ -25,8 +25,8 @@ optimizer = Adam(model.parameters(), lr=LR)
 criterion = nn.CTCLoss(blank=NUM_CHARS)
 
 # 微调
-checkpoint_path = 'other model/RCNN(end-to-end)/runs/remote/1/best_model_epoch13_val-acc0.9403.pth'
-model.load_state_dict(torch.load(checkpoint_path, map_location=DEVICE))
+# checkpoint_path = 'other model/RCNN(end-to-end)/runs/remote/1/best_model_epoch13_val-acc0.9403.pth'
+# model.load_state_dict(torch.load(checkpoint_path, map_location=DEVICE))
 
 
 # 数据加载
