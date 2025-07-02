@@ -8,6 +8,12 @@ from tqdm import tqdm
 import difflib
 
 
+def lcs_length(a, b):
+    """计算两个字符串的最长公共子序列长度"""
+    s = difflib.SequenceMatcher(None, a, b)
+    return sum(block.size for block in s.get_matching_blocks())
+
+
 class PredictionDataset(Dataset):
     def __init__(self, img_dir, img_size=(100, 200)):
         self.img_dir = img_dir
@@ -67,12 +73,6 @@ def predict_images(model, img_dir, result_file, batch_size=64, device='cuda'):
 
     with open(result_file, 'w', encoding='utf-8') as f_out:
         model.eval()
-
-        def lcs_length(a, b):
-            """计算两个字符串的最长公共子序列长度"""
-            matcher = difflib.SequenceMatcher(None, a, b)
-            return matcher.find_longest_match(0, len(a), 0, len(b)).size
-
         with torch.no_grad():
             for views, true_labels, filenames in tqdm(loader, desc='预测进度'):
                 views = views.to(device)

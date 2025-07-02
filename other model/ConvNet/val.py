@@ -64,8 +64,8 @@ def calculate_accuracy(outputs, labels):
 
 def lcs_length(a, b):
     """计算两个字符串的最长公共子序列长度"""
-    matcher = difflib.SequenceMatcher(None, a, b)
-    return matcher.find_longest_match(0, len(a), 0, len(b)).size
+    s = difflib.SequenceMatcher(None, a, b)
+    return sum(block.size for block in s.get_matching_blocks())
 
 
 def main():

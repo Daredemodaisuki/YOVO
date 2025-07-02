@@ -4,6 +4,12 @@ import os
 import difflib
 
 
+def lcs_length(a, b):
+    """计算两个字符串的最长公共子序列长度"""
+    s = difflib.SequenceMatcher(None, a, b)
+    return sum(block.size for block in s.get_matching_blocks())
+
+
 def detect_images(
         weights_path,  # 权重文件路径
         source_dir,  # 包含PNG图像的源文件夹
@@ -63,11 +69,6 @@ def calculate_acc(results_dir, class_file, output_file='结果.txt'):
     total_texts = len(label_files)
 
     with open(output_file, 'w', encoding='utf-8') as out_f:
-        def lcs_length(a, b):
-            """计算两个字符串的最长公共子序列长度"""
-            matcher = difflib.SequenceMatcher(None, a, b)
-            return matcher.find_longest_match(0, len(a), 0, len(b)).size
-
         # 处理每个标签文件
         for label_file in label_files:
             img_name = os.path.splitext(label_file)[0]  # 原图片文件名（不带扩展名的label txt名）
