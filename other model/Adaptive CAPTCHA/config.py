@@ -16,15 +16,15 @@ class Config:
     dropout = 0.3
 
     # 训练参数
-    batch_size = 64
+    batch_size = 32
     epochs = 100
-    lr = 0.0001
+    lr = 0.00035
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     # 路径设置
-    train_dir = "../../dataset/4char/train/images/"
-    val_dir = "../../dataset/4char/val/images/"
-    save_dir = "./runs/local/1/"
+    train_dir = "dataset/4char/train/images/"
+    val_dir = "dataset/4char/val/images/"
+    save_dir = "other model/Adaptive CAPTCHA/runs/remote/2-1上微调/"
 
 
 config = Config()

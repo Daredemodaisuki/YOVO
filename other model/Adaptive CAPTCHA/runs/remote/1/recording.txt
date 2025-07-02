@@ -1,0 +1,88 @@
+Training Log
+==================================================
+Epoch 1/100: Train loss: 0.4569 | Train char acc: 0.1162 | Train char acc: 0.1162 | Val loss: 0.3276 | Val acc: 0.0090 | Val char acc: 0.2697 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch1_val-acc0.0090.pth
+Epoch 2/100: Train loss: 0.2192 | Train char acc: 0.4426 | Train char acc: 0.4426 | Val loss: 0.1464 | Val acc: 0.2105 | Val char acc: 0.5789 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch2_val-acc0.2105.pth
+Epoch 3/100: Train loss: 0.1217 | Train char acc: 0.6331 | Train char acc: 0.6331 | Val loss: 0.1222 | Val acc: 0.2585 | Val char acc: 0.6116 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch3_val-acc0.2585.pth
+Epoch 4/100: Train loss: 0.0799 | Train char acc: 0.7284 | Train char acc: 0.7284 | Val loss: 0.0672 | Val acc: 0.5108 | Val char acc: 0.7676 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch4_val-acc0.5108.pth
+Epoch 5/100: Train loss: 0.0549 | Train char acc: 0.8004 | Train char acc: 0.8004 | Val loss: 0.0563 | Val acc: 0.5835 | Val char acc: 0.8128 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch5_val-acc0.5835.pth
+Epoch 6/100: Train loss: 0.0401 | Train char acc: 0.8506 | Train char acc: 0.8506 | Val loss: 0.1353 | Val acc: 0.4517 | Val char acc: 0.7097 
+Epoch 7/100: Train loss: 0.0306 | Train char acc: 0.8854 | Train char acc: 0.8854 | Val loss: 0.0365 | Val acc: 0.7027 | Val char acc: 0.8720 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch7_val-acc0.7027.pth
+Epoch 8/100: Train loss: 0.0245 | Train char acc: 0.9064 | Train char acc: 0.9064 | Val loss: 0.0375 | Val acc: 0.6975 | Val char acc: 0.8647 
+Epoch 9/100: Train loss: 0.0190 | Train char acc: 0.9267 | Train char acc: 0.9267 | Val loss: 0.0389 | Val acc: 0.7053 | Val char acc: 0.8688 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch9_val-acc0.7053.pth
+Epoch 10/100: Train loss: 0.0156 | Train char acc: 0.9402 | Train char acc: 0.9402 | Val loss: 0.0335 | Val acc: 0.7385 | Val char acc: 0.8869 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch10_val-acc0.7385.pth
+Epoch 11/100: Train loss: 0.0138 | Train char acc: 0.9470 | Train char acc: 0.9470 | Val loss: 0.0324 | Val acc: 0.7448 | Val char acc: 0.8865 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch11_val-acc0.7448.pth
+Epoch 12/100: Train loss: 0.0111 | Train char acc: 0.9580 | Train char acc: 0.9580 | Val loss: 0.1965 | Val acc: 0.4850 | Val char acc: 0.7242 
+Epoch 13/100: Train loss: 0.0104 | Train char acc: 0.9605 | Train char acc: 0.9605 | Val loss: 0.0387 | Val acc: 0.7170 | Val char acc: 0.8758 
+Epoch 14/100: Train loss: 0.0094 | Train char acc: 0.9640 | Train char acc: 0.9640 | Val loss: 0.9046 | Val acc: 0.0032 | Val char acc: 0.2246 
+Epoch 15/100: Train loss: 0.0080 | Train char acc: 0.9698 | Train char acc: 0.9698 | Val loss: 0.0308 | Val acc: 0.7790 | Val char acc: 0.9065 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch15_val-acc0.7790.pth
+Epoch 16/100: Train loss: 0.0084 | Train char acc: 0.9671 | Train char acc: 0.9671 | Val loss: 0.0524 | Val acc: 0.6730 | Val char acc: 0.8534 
+Epoch 17/100: Train loss: 0.0070 | Train char acc: 0.9726 | Train char acc: 0.9726 | Val loss: 0.0308 | Val acc: 0.7870 | Val char acc: 0.9094 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch17_val-acc0.7870.pth
+Epoch 18/100: Train loss: 0.0067 | Train char acc: 0.9756 | Train char acc: 0.9756 | Val loss: 0.0341 | Val acc: 0.7612 | Val char acc: 0.8935 
+Epoch 19/100: Train loss: 0.0059 | Train char acc: 0.9767 | Train char acc: 0.9767 | Val loss: 0.3607 | Val acc: 0.3790 | Val char acc: 0.6286 
+Epoch 20/100: Train loss: 0.0055 | Train char acc: 0.9783 | Train char acc: 0.9783 | Val loss: 0.0335 | Val acc: 0.7798 | Val char acc: 0.9041 
+Epoch 21/100: Train loss: 0.0055 | Train char acc: 0.9788 | Train char acc: 0.9788 | Val loss: 0.0330 | Val acc: 0.7750 | Val char acc: 0.9064 
+Epoch 22/100: Train loss: 0.0048 | Train char acc: 0.9816 | Train char acc: 0.9816 | Val loss: 0.0570 | Val acc: 0.7222 | Val char acc: 0.8710 
+Epoch 23/100: Train loss: 0.0048 | Train char acc: 0.9810 | Train char acc: 0.9810 | Val loss: 0.0309 | Val acc: 0.7883 | Val char acc: 0.9104 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch23_val-acc0.7883.pth
+Epoch 24/100: Train loss: 0.0049 | Train char acc: 0.9809 | Train char acc: 0.9809 | Val loss: 0.0395 | Val acc: 0.7542 | Val char acc: 0.8913 
+Epoch 25/100: Train loss: 0.0045 | Train char acc: 0.9825 | Train char acc: 0.9825 | Val loss: 0.0337 | Val acc: 0.7780 | Val char acc: 0.9032 
+Epoch 26/100: Train loss: 0.0042 | Train char acc: 0.9833 | Train char acc: 0.9833 | Val loss: 0.0338 | Val acc: 0.7795 | Val char acc: 0.9048 
+Epoch 27/100: Train loss: 0.0035 | Train char acc: 0.9866 | Train char acc: 0.9866 | Val loss: 0.0336 | Val acc: 0.7850 | Val char acc: 0.9059 
+Epoch 28/100: Train loss: 0.0040 | Train char acc: 0.9842 | Train char acc: 0.9842 | Val loss: 0.0739 | Val acc: 0.7013 | Val char acc: 0.8581 
+Epoch 29/100: Train loss: 0.0037 | Train char acc: 0.9850 | Train char acc: 0.9850 | Val loss: 0.0770 | Val acc: 0.6973 | Val char acc: 0.8551 
+Epoch 30/100: Train loss: 0.0034 | Train char acc: 0.9865 | Train char acc: 0.9865 | Val loss: 0.0306 | Val acc: 0.8117 | Val char acc: 0.9196 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch30_val-acc0.8117.pth
+Epoch 31/100: Train loss: 0.0041 | Train char acc: 0.9829 | Train char acc: 0.9829 | Val loss: 0.1800 | Val acc: 0.5705 | Val char acc: 0.7840 
+Epoch 32/100: Train loss: 0.0030 | Train char acc: 0.9885 | Train char acc: 0.9885 | Val loss: 0.0311 | Val acc: 0.8037 | Val char acc: 0.9159 
+Epoch 33/100: Train loss: 0.0030 | Train char acc: 0.9882 | Train char acc: 0.9882 | Val loss: 0.0377 | Val acc: 0.7600 | Val char acc: 0.8974 
+Epoch 34/100: Train loss: 0.0036 | Train char acc: 0.9849 | Train char acc: 0.9849 | Val loss: 0.0575 | Val acc: 0.7095 | Val char acc: 0.8669 
+Epoch 35/100: Train loss: 0.0031 | Train char acc: 0.9875 | Train char acc: 0.9875 | Val loss: 0.0286 | Val acc: 0.8200 | Val char acc: 0.9234 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch35_val-acc0.8200.pth
+Epoch 36/100: Train loss: 0.0025 | Train char acc: 0.9893 | Train char acc: 0.9893 | Val loss: 0.0301 | Val acc: 0.8230 | Val char acc: 0.9242 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch36_val-acc0.8230.pth
+Epoch 37/100: Train loss: 0.0032 | Train char acc: 0.9873 | Train char acc: 0.9873 | Val loss: 0.0330 | Val acc: 0.7987 | Val char acc: 0.9152 
+Epoch 38/100: Train loss: 0.0030 | Train char acc: 0.9877 | Train char acc: 0.9877 | Val loss: 0.0304 | Val acc: 0.8215 | Val char acc: 0.9239 
+Epoch 39/100: Train loss: 0.0024 | Train char acc: 0.9907 | Train char acc: 0.9907 | Val loss: 0.0306 | Val acc: 0.8107 | Val char acc: 0.9189 
+Epoch 40/100: Train loss: 0.0028 | Train char acc: 0.9891 | Train char acc: 0.9891 | Val loss: 0.0332 | Val acc: 0.8095 | Val char acc: 0.9194 
+Epoch 41/100: Train loss: 0.0022 | Train char acc: 0.9908 | Train char acc: 0.9908 | Val loss: 0.0291 | Val acc: 0.8195 | Val char acc: 0.9224 
+Epoch 42/100: Train loss: 0.0026 | Train char acc: 0.9898 | Train char acc: 0.9898 | Val loss: 0.0354 | Val acc: 0.7825 | Val char acc: 0.9059 
+Epoch 43/100: Train loss: 0.0026 | Train char acc: 0.9899 | Train char acc: 0.9899 | Val loss: 0.0388 | Val acc: 0.7893 | Val char acc: 0.9093 
+Epoch 44/100: Train loss: 0.0021 | Train char acc: 0.9922 | Train char acc: 0.9922 | Val loss: 0.0335 | Val acc: 0.8100 | Val char acc: 0.9160 
+Epoch 45/100: Train loss: 0.0028 | Train char acc: 0.9883 | Train char acc: 0.9883 | Val loss: 0.0311 | Val acc: 0.8135 | Val char acc: 0.9188 
+Epoch 46/100: Train loss: 0.0021 | Train char acc: 0.9913 | Train char acc: 0.9913 | Val loss: 0.0347 | Val acc: 0.8055 | Val char acc: 0.9146 
+Epoch 47/100: Train loss: 0.0029 | Train char acc: 0.9875 | Train char acc: 0.9875 | Val loss: 0.0349 | Val acc: 0.8095 | Val char acc: 0.9164 
+Epoch 48/100: Train loss: 0.0019 | Train char acc: 0.9922 | Train char acc: 0.9922 | Val loss: 0.0369 | Val acc: 0.8017 | Val char acc: 0.9157 
+Epoch 49/100: Train loss: 0.0019 | Train char acc: 0.9925 | Train char acc: 0.9925 | Val loss: 1.2854 | Val acc: 0.0222 | Val char acc: 0.2527 
+Epoch 50/100: Train loss: 0.0023 | Train char acc: 0.9909 | Train char acc: 0.9909 | Val loss: 0.1683 | Val acc: 0.6065 | Val char acc: 0.8030 
+Epoch 51/100: Train loss: 0.0022 | Train char acc: 0.9907 | Train char acc: 0.9907 | Val loss: 0.0360 | Val acc: 0.8037 | Val char acc: 0.9149 
+Epoch 52/100: Train loss: 0.0021 | Train char acc: 0.9918 | Train char acc: 0.9918 | Val loss: 0.0405 | Val acc: 0.7853 | Val char acc: 0.9064 
+Epoch 53/100: Train loss: 0.0021 | Train char acc: 0.9919 | Train char acc: 0.9919 | Val loss: 0.0433 | Val acc: 0.7927 | Val char acc: 0.9099 
+Epoch 54/100: Train loss: 0.0021 | Train char acc: 0.9916 | Train char acc: 0.9916 | Val loss: 0.0336 | Val acc: 0.8215 | Val char acc: 0.9243 
+Epoch 55/100: Train loss: 0.0021 | Train char acc: 0.9917 | Train char acc: 0.9917 | Val loss: 0.0329 | Val acc: 0.8215 | Val char acc: 0.9234 
+Epoch 56/100: Train loss: 0.0019 | Train char acc: 0.9920 | Train char acc: 0.9920 | Val loss: 0.0365 | Val acc: 0.8127 | Val char acc: 0.9194 
+Epoch 57/100: Train loss: 0.0019 | Train char acc: 0.9925 | Train char acc: 0.9925 | Val loss: 0.1099 | Val acc: 0.6870 | Val char acc: 0.8489 
+Epoch 58/100: Train loss: 0.0021 | Train char acc: 0.9914 | Train char acc: 0.9914 | Val loss: 0.0381 | Val acc: 0.8043 | Val char acc: 0.9141 
+Epoch 59/100: Train loss: 0.0017 | Train char acc: 0.9929 | Train char acc: 0.9929 | Val loss: 0.0330 | Val acc: 0.8310 | Val char acc: 0.9269 
+Saved best model: other model/Adaptive CAPTCHA/runs/remote/1/best_model_epoch59_val-acc0.8310.pth
+Epoch 60/100: Train loss: 0.0020 | Train char acc: 0.9915 | Train char acc: 0.9915 | Val loss: 0.0344 | Val acc: 0.8173 | Val char acc: 0.9200 
+Epoch 61/100: Train loss: 0.0018 | Train char acc: 0.9928 | Train char acc: 0.9928 | Val loss: 0.0347 | Val acc: 0.8163 | Val char acc: 0.9205 
+Epoch 62/100: Train loss: 0.0017 | Train char acc: 0.9931 | Train char acc: 0.9931 | Val loss: 0.0314 | Val acc: 0.8283 | Val char acc: 0.9253 
+Epoch 63/100: Train loss: 0.0017 | Train char acc: 0.9927 | Train char acc: 0.9927 | Val loss: 0.0367 | Val acc: 0.8083 | Val char acc: 0.9171 
+Epoch 64/100: Train loss: 0.0016 | Train char acc: 0.9933 | Train char acc: 0.9933 | Val loss: 0.0417 | Val acc: 0.7970 | Val char acc: 0.9117 
+Epoch 65/100: Train loss: 0.0017 | Train char acc: 0.9929 | Train char acc: 0.9929 | Val loss: 0.0341 | Val acc: 0.8295 | Val char acc: 0.9263 
+Epoch 66/100: Train loss: 0.0016 | Train char acc: 0.9929 | Train char acc: 0.9929 | Val loss: 0.0346 | Val acc: 0.8197 | Val char acc: 0.9221 
+Epoch 67/100: Train loss: 0.0016 | Train char acc: 0.9935 | Train char acc: 0.9935 | Val loss: 0.0329 | Val acc: 0.8250 | Val char acc: 0.9241 
+Epoch 68/100: Train loss: 0.0021 | Train char acc: 0.9914 | Train char acc: 0.9914 | Val loss: 0.0795 | Val acc: 0.7492 | Val char acc: 0.8832 
+Epoch 69/100: Train loss: 0.0015 | Train char acc: 0.9941 | Train char acc: 0.9941 | Val loss: 0.0315 | Val acc: 0.8307 | Val char acc: 0.9273 
+Epoch 70/100: Train loss: 0.0014 | Train char acc: 0.9943 | Train char acc: 0.9943 | Val loss: 1.0260 | Val acc: 0.0227 | Val char acc: 0.3061 
