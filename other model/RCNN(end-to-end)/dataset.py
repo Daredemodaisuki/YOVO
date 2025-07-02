@@ -9,9 +9,8 @@ from torchvision import transforms
 class CaptchaDataset(Dataset):
     def __init__(self, root_dir, charset, max_label_len=6):
         self.root_dir = root_dir
-        # self.image_dir = os.path.join(root_dir, 'images')
-        self.image_dir = root_dir
-        self.labels = self._load_labels()
+        self.image_dir = root_dir  # os.path.join(root_dir, 'images')
+        self.image_files = os.listdir(self.image_dir)
         self.charset = charset
         self.max_label_len = max_label_len
         self.transform = transforms.Compose([
@@ -19,20 +18,13 @@ class CaptchaDataset(Dataset):
             transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
         ])
 
-    def _load_labels(self):
-        labels = {}
-        for img_name in os.listdir(self.image_dir):
-            # 文件名格式: "label_otherinfo.jpg"
-            label = img_name.split('_')[0]
-            labels[img_name] = label
-        return labels
-
     def __len__(self):
-        return len(self.labels)
+        return len(self.image_files)
 
     def __getitem__(self, idx):
-        img_name = list(self.labels.keys())[idx]
-        label = self.labels[img_name]
+        img_name = self.image_files[idx]
+        # 文件名格式: "label_otherinfo.jpg" - 第一个"_"前是标签
+        label = img_name.split('_')[0]
 
         # 加载图像
         img_path = os.path.join(self.image_dir, img_name)
@@ -49,7 +41,7 @@ class CaptchaDataset(Dataset):
         if target_len < self.max_label_len:
             target += [len(self.charset)] * (self.max_label_len - target_len)
 
-        return img, torch.tensor(target), torch.tensor(target_len)
+        return img, torch.tensor(target), torch.tensor(target_len), img_name
 
 
 def create_data_loader(root_dir, charset, batch_size=32, shuffle=True):
