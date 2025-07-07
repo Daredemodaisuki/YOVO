@@ -29,12 +29,13 @@ def main():
     root = os.path.abspath(os.path.dirname(__file__))
 
     train_yolo_model(dataset_dir=os.path.join(root, "dataset"),
-                     dataset_yaml="data_Pseudo_Ganji.yaml",
+                     dataset_yaml="data_Pseudo_Ganji2.yaml",
                      model_path='yaml/yolov8n (nc=62) - 去小核 - C2fFaster.yaml',
-                     name='yolo_origin去小核C2fFasrer-PGanji80',  # 文件夹名称
+                     name='yolo_origin去小核C2fFasrer-PGanji_2_80只区分是不是',  # 文件夹名称
                      epochs=80,
                      imgsz=196,
                      batch=16)
+                     # YOLOv8n (nc=62) - 去小核 - C2fFaster summary: 104 layers, 820,274 parameters, 820,258 gradients, 5.3 GFLOPs
 
 
 if __name__ == '__main__':
