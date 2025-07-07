@@ -1,0 +1,3 @@
+Training Log
+==================================================
+Epoch 1/100: Train loss: 0.2551 | Train char acc: 0.0735 | Train char acc: 0.0735 | Val loss: 0.2412 | Val acc: 0.0000 | Val char acc: 0.1086 
