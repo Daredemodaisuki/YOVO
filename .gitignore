@@ -7,6 +7,7 @@ fonts/
 dataset/4char
 dataset/3-6char
 dataset/Pseudo_Ganji_4char
+dataset/Pseudo_Ganji_4char_1
 **/predictions/
 __MACOSX/
 

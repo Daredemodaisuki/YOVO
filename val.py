@@ -15,7 +15,7 @@ def detect_images(
         source_dir,  # 包含PNG图像的源文件夹
         output_dir,  # 输出目录
         conf_thresh=0.25,  # 置信度阈值
-        iou_thresh=0.5  # IOU阈值
+        iou_thresh=0.1  # IOU阈值
 ):
     # 加载模型
     model = YOLO(weights_path)
@@ -125,11 +125,15 @@ def calculate_acc(results_dir, class_file, output_file='结果.txt'):
 
 if __name__ == "__main__":
     # 检测
-    weight_model = "yolo_origin3（云端，关闭镜像72 layers, 3,017,738 parameters, 0 gradients, 8.2 GFLOPs）"
-    weights_path = "runs/remote/old/" + weight_model + "/weights/best.pt"
-    img_dir = "images"
-    source_dir = "dataset/4char/val/" + img_dir + "/"
-    output_dir = "runs/local/test/重测" + img_dir + "-" + weight_model + str(time.mktime(time.localtime())) + "/"
+    weight_model = "yolo_origin去小核C2fFasrer-PGanji800"
+    weights_path = "runs/remote/detect/" + weight_model + "/weights/best.pt"
+    # img_dir = "images"
+    # source_dir = "dataset/Pseudo_Ganji_4char/val/" + img_dir + "/"
+    img_dir = "ganji_train_x3"
+    # source_dir = "captcha_img/dataset_semi-supervised-for-captcha/dataset/ganji-1/" + img_dir + "/"
+    source_dir = "fonts/" + img_dir + "/"
+    output_dir = "runs/local/test/realGanji" + img_dir + "-" + weight_model + str(time.mktime(time.localtime())) + "/"
+    os.makedirs(output_dir, exist_ok=True)
     detect_images(weights_path, source_dir, output_dir)
 
     # 准确率
