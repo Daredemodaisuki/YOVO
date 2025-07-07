@@ -125,11 +125,11 @@ def calculate_acc(results_dir, class_file, output_file='结果.txt'):
 
 if __name__ == "__main__":
     # 检测
-    weight_model = "yolo_origin去小核C2fFaster-B100（0.984-0.986, 69 layers, 825,372 parameters, 0 gradients, 5.2 GFLOPs）"
-    weights_path = "runs/remote/detect/" + weight_model + "/weights/best.pt"
+    weight_model = "yolo_origin3（云端，关闭镜像72 layers, 3,017,738 parameters, 0 gradients, 8.2 GFLOPs）"
+    weights_path = "runs/remote/old/" + weight_model + "/weights/best.pt"
     img_dir = "images"
-    source_dir = "dataset/3-6char/val/" + img_dir + "/"
-    output_dir = "runs/local/test/" + img_dir + "-" + weight_model + str(time.mktime(time.localtime())) + "/"
+    source_dir = "dataset/4char/val/" + img_dir + "/"
+    output_dir = "runs/local/test/重测" + img_dir + "-" + weight_model + str(time.mktime(time.localtime())) + "/"
     detect_images(weights_path, source_dir, output_dir)
 
     # 准确率

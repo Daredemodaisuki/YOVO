@@ -104,9 +104,10 @@ if __name__ == '__main__':
     # 配置参数
     DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     BATCH_SIZE = 32
-    VAL_DIR = '../../dataset/3-6char/val/images'
-    MODEL_PATH = './runs/remote/3-6训/best_model_epoch26_val-acc0.9680.pth'  # 使用最终训练的模型
-    RESULT_DIR = './runs/local/test/3-6训6测'
+    VAL_DIR = '../../dataset/4char/val/images'
+    MODEL_PATH = './runs/remote/1/best_model_epoch13_val-acc0.9403.pth'
+    # 6训用26，4训用重训55或1/13（55过拟合？，在6测上表现很差，还是用1/13吧）
+    RESULT_DIR = './runs/local/test/4-重测'
     os.makedirs(RESULT_DIR, exist_ok=True)
 
     # 加载模型

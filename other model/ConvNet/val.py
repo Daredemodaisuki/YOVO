@@ -10,8 +10,8 @@ from model import CAPTCHAModel
 
 class Config:
     VAL_DIR = "../../dataset/4char/val/images"
-    MODEL_PATH = "runs/remote/1/best_model_epoch35_val-acc0.8267.pth"  # 替换为最佳模型路径
-    RESULT_FILE = "runs/local/test/2-4训4测（定长）/result.txt"  # 结果输出文件
+    MODEL_PATH = "runs/remote/1/best_model_epoch35_val-acc0.8267.pth"  # epoch35
+    RESULT_FILE = "runs/local/test/2-4训4测（定长）/重测result.txt"  # 结果输出文件
     NUM_CHARS = 62
     NUM_POSITIONS = 4
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")

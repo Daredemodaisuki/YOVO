@@ -122,12 +122,14 @@ def predict_images(model, img_dir, result_file, batch_size=64, device='cuda'):
 
 def main():
     # ===== 参数配置 =====
-    MODEL_PATH = './runs/remote/3-在变长字符上训练/best_model_97_val-acc0.8289.pth'  # 模型权重路径
+    MODEL_PATH = './runs/remote/2/best_model_83_val-acc0.8565.pth'  # 模型权重路径
+    # 4训用2/132（过拟合）→105→83（好吧并没有过拟合，就是它的问题，还是用132）；6训3/97
     IMAGE_DIR = '../../dataset/3-6char/val/images'  # 验证码图片目录
-    RESULT_FILE = './runs/local/test/4-6训测6/结果.txt'  # 结果输出文件
+    RESULT_FILE = './runs/local/test/5-重测/结果-4训6测（83）.txt'  # 结果输出文件
     CHAR_SET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'  # 字符集
     BATCH_SIZE = 64  # 批处理大小
     IMG_SIZE = (100, 200)  # 图像尺寸 (高, 宽)
+
     # ===================
 
     # 检查路径
