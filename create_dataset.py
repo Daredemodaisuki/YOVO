@@ -63,7 +63,7 @@ def create_dataset(dataset_dir, original_img_dir):
             return classes_in_txt
 
     # data.yaml
-    with open(os.path.join(dataset_dir, "data.yaml"), "w") as yaml:
+    with open(os.path.join(dataset_dir, "data_Pseudo_Ganji.yaml"), "w") as yaml:
         yaml.write("train: ../train/images\n")
         yaml.write("val: ../val/images\n")
 
@@ -77,8 +77,8 @@ def create_dataset(dataset_dir, original_img_dir):
 
 def main():
     root = os.path.abspath(os.path.dirname(__file__))
-    create_dataset(dataset_dir=os.path.join(root, "dataset"),
-                   original_img_dir=os.path.join(root, "captcha_img", "20000pic_200x100_4char_at1746203235"))
+    create_dataset(dataset_dir=os.path.join(root, "dataset", "Pseudo_Ganji_4char"),
+                   original_img_dir=os.path.join(root, "captcha_img", "PseudoGanji20000pic_200x100_4char_at1751875492"))
 
 
 if __name__ == '__main__':

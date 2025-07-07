@@ -3,8 +3,10 @@
 文章和杂项/
 远程杂项/
 captcha_img/
+fonts/
 dataset/4char
 dataset/3-6char
+dataset/Pseudo_Ganji_4char
 **/predictions/
 __MACOSX/
 
