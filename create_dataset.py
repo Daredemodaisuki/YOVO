@@ -77,8 +77,8 @@ def create_dataset(dataset_dir, original_img_dir):
 
 def main():
     root = os.path.abspath(os.path.dirname(__file__))
-    create_dataset(dataset_dir=os.path.join(root, "dataset", "Pseudo_Ganji_4char_1"),
-                   original_img_dir=os.path.join(root, "captcha_img", "PseudoGanji20000pic_180x54_4char_at1751890144"))
+    create_dataset(dataset_dir=os.path.join(root, "dataset", "Pseudo_Ganji_4char_2"),
+                   original_img_dir=os.path.join(root, "captcha_img", "PseudoGanji10000pic_180x54_4char_at1751893722"))
 
 
 if __name__ == '__main__':
