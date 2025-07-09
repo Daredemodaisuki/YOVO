@@ -6,8 +6,8 @@ import glob
 ITERATION = 2
 
 SOURCE_ROOT_DIR = "../runs/local/test/" \
-                  "realGanji（【选定】只区分是不是，ganji_train_x3白底，after_round1，cof0.25iou0.5）" \
-                  "ganji_train_white_x3-yolo_origin去小核C2fFasrer-PGanji_2(after_round1)_80只区分是不是1751977929.0/"   # 结果根目录
+                  "realGanji（【选定】只区分是不是，ganji_train_x3，after_round1，cof0.25iou0.5）" \
+                  "ganji_train_x3-yolo_origin去小核C2fFasrer-PGanji_2(after_round1)_80只区分是不是1752053800.0/"   # 结果根目录
 LOG_FILE_PATH = os.path.join(SOURCE_ROOT_DIR, "result.txt")  # 当前识别结果日志
 # IMG_SOURCE_DIR = os.path.join(SOURCE_ROOT_DIR, "predictions/")  # 原始图片目录
 IMG_SOURCE_DIR = "../captcha_img/dataset_semi-supervised-for-captcha/dataset/ganji-1/train"  # 原始图片目录
