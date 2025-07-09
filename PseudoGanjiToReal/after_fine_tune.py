@@ -3,15 +3,15 @@ import shutil
 import glob
 
 # 配置常量
-ITERATION = 1  # 当前迭代次数
+ITERATION = 2  # 当前迭代次数
 
 CLASSES_TXT_PATH = "classes_only_char.txt"
-HISTORY_LOG_DIR = f"./rounds/{ITERATION}/"  # 历史记录目录
+HISTORY_LOG_DIR = f"./rounds/"  # 历史记录目录
 COPY_CORRECT_CHAR_DIR = f"./rounds/{ITERATION}/correct_char_num/"  # 副本目录1（调整前）
 COPY_FINE_TUNE_DIR = f"./rounds/{ITERATION}/after_fine_tune/"  # 副本目录2（调整后）
 
-# PREV_TRAIN_SET = f"./rounds/{ITERATION - 1}/final_new_dataset/"  # 上次数据集
-PREV_TRAIN_SET = "../captcha_img/PseudoGanji10000pic_180x54_4char_at1751897926"  # 上次训练集（第1轮为原始数据集）
+PREV_TRAIN_SET = f"./rounds/{ITERATION - 1}/final_new_dataset/"  # 上次数据集
+# PREV_TRAIN_SET = "../captcha_img/PseudoGanji10000pic_180x54_4char_at1751897926"  # 上次训练集（第1轮为原始数据集）
 NEW_TRAIN_SET = f"./rounds/{ITERATION}/final_new_dataset/"  # 新数据集
 
 CLASS_INDEX = '0'  # 字符类别索引
@@ -158,10 +158,11 @@ def main():
                     if "，iou=" in line:
                         line = line.split("，iou=")[0]
                         print(f"警告：「{id}」原始记录已包含iou信息，覆盖。")
-                    line += f"，iou={iou_dict[id][0]:.6f}（{','.join(iou_dict[id][1])}）" + "\n"
+                    line += f"，iou={iou_dict[id][0]:.6f}（{','.join(iou_dict[id][1])}）"
+                line += "\n"
                 orig_log.append({"type": "sample", "id": id, "content": line})
             else:
-                orig_log.append({"type": "info", "content": line})
+                orig_log.append({"type": "info", "content": line + "\n"})
 
     # 重写更新历史日志
     with open(history_log, 'w', encoding='utf-8') as f:

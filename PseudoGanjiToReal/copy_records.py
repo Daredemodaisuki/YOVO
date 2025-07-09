@@ -3,17 +3,18 @@ import shutil
 import glob
 
 # 配置常量
-ITERATION = 1
+ITERATION = 2
 
-SOURCE_ROOT_DIR = "../runs/local/test/realGanji（【选定】只区分是不是，ganji_train_x3白底，cof0.65IoU0.65）" \
-                "ganji_train_white_x3-yolo_origin去小核C2fFasrer-PGanji_2_80只区分是不是1751904856.0/"  # 结果根目录
+SOURCE_ROOT_DIR = "../runs/local/test/" \
+                  "realGanji（【选定】只区分是不是，ganji_train_x3白底，after_round1，cof0.25iou0.5）" \
+                  "ganji_train_white_x3-yolo_origin去小核C2fFasrer-PGanji_2(after_round1)_80只区分是不是1751977929.0/"   # 结果根目录
 LOG_FILE_PATH = os.path.join(SOURCE_ROOT_DIR, "result.txt")  # 当前识别结果日志
 # IMG_SOURCE_DIR = os.path.join(SOURCE_ROOT_DIR, "predictions/")  # 原始图片目录
 IMG_SOURCE_DIR = "../captcha_img/dataset_semi-supervised-for-captcha/dataset/ganji-1/train"  # 原始图片目录
 TXT_SOURCE_DIR = os.path.join(SOURCE_ROOT_DIR, "predictions/", "labels/")  # 原始标注目录
 CLASS_FILE = "./classes_only_char.txt"  # 类别文件
 
-HISTORY_LOG_DIR = f"./rounds/{ITERATION}/"  # 历史记录目录
+HISTORY_LOG_DIR = f"./rounds/"  # 历史记录目录
 COPY_CORRECT_CHAR_DIR = f"./rounds/{ITERATION}/correct_char_num/"  # 副本目录1
 COPY_FINE_TUNE_DIR = f"./rounds/{ITERATION}/after_fine_tune/"  # 副本目录2
 
