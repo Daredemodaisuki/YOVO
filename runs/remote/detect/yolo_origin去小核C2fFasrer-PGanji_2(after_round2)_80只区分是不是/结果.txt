@@ -1,7 +1,5 @@
 Validating runs/remote/detect/yolo_origin去小核C2fFasrer-PGanji_2(after_round2)_80只区分是不是/weights/best.pt...
 Ultralytics 8.3.139 🚀 Python-3.10.11 torch-2.7.0+cu126 CUDA:0 (Tesla T4, 14928MiB)
 YOLOv8n (nc=62) - 去小核 - C2fFaster summary (fused): 69 layers, 817,442 parameters, 0 gradients, 5.2 GFLOPs
-                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 55/55 [00:07<00:00,  7.61it/s]
-                   all       1740       6960      0.998      0.995      0.995      0.932
-Speed: 0.0ms preprocess, 0.4ms inference, 0.0ms loss, 0.9ms postprocess per image
-Results saved to runs/remote/detect/yolo_origin去小核C2fFasrer-PGanji_2(after_round2)_80只区分是不是
+                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100%|██████████| 55/55 [00:07<00:00,  7.59it/s]
+                   all       1741       6964      0.998      0.997      0.995      0.935
