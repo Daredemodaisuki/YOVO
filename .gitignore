@@ -13,6 +13,7 @@ dataset/Pseudo_Ganji_4char_2(after_round1)/
 dataset/Pseudo_Ganji_4char_2(after_round2)【基于使用白底的round2，作废】/
 dataset/Pseudo_Ganji_4char_2(after_round2)/
 dataset/Pseudo_Ganji_4char_2(after_round3_final)/
+dataset/Pseudo_Ganji_4char_2(after_round4)/
 PseudoGanjiToReal/rounds/train_set/
 PseudoGanjiToReal/train_set/
 **/correct_char_num/
