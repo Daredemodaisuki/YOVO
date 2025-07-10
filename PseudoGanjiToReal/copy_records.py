@@ -3,11 +3,11 @@ import shutil
 import glob
 
 # 配置常量
-ITERATION = 4
+ITERATION = 5
 
 SOURCE_ROOT_DIR = "../runs/local/test/" \
-                  "realGanji（只区分是不是，ganji_train_x3，after_round3，cof0.25iou0.5）" \
-                  "ganji_test_x3-yolo_origin去小核C2fFasrer-PGanji_2(after_round3)_80只区分是不是1752125994.0"   # 结果根目录
+                  "realGanji（只区分是不是，ganji_test_x3，after_round4，cof0.25iou0.5）" \
+                  "ganji_test_x3-yolo_origin去小核C2fFasrer-PGanji_2(after_round4)_80只区分是不是1752140702.0"   # 结果根目录
 LOG_FILE_PATH = os.path.join(SOURCE_ROOT_DIR, "result.txt")  # 当前识别结果日志
 # IMG_SOURCE_DIR = os.path.join(SOURCE_ROOT_DIR, "predictions/")  # 原始图片目录
 IMG_SOURCE_DIR = "../captcha_img/dataset_semi-supervised-for-captcha/dataset/ganji-1/test"  # 原始图片目录

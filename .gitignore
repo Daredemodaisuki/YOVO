@@ -15,7 +15,9 @@ dataset/Pseudo_Ganji_4char_2(after_round2)/
 dataset/Pseudo_Ganji_4char_2(after_round3_final)/
 dataset/Pseudo_Ganji_4char_2(after_round4)/
 PseudoGanjiToReal/rounds/train_set/
+PseudoGanjiToReal/rounds/test_set/
 PseudoGanjiToReal/train_set/
+PseudoGanjiToReal/test_set/
 **/correct_char_num/
 **/after_fine_tune/
 **/final_new_dataset/
