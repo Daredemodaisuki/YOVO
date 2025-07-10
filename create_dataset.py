@@ -77,8 +77,8 @@ def create_dataset(dataset_dir, original_img_dir):
 
 def main():
     root = os.path.abspath(os.path.dirname(__file__))
-    create_dataset(dataset_dir=os.path.join(root, "dataset", "Pseudo_Ganji_4char_2(after_round4)"),
-                   original_img_dir=os.path.join(root, "PseudoGanjiToReal/rounds/4/final_new_dataset"))
+    create_dataset(dataset_dir=os.path.join(root, "dataset", "annotated_Ganji_remixed"),
+                   original_img_dir=os.path.join(root, "PseudoGanjiToReal/mix_set"))
 
 
 if __name__ == '__main__':

@@ -1,9 +1,11 @@
 import os
 
-img_dir = "dataset/annotated_Ganji/train/images"
-txt_dir = "dataset/annotated_Ganji/train/labels"
-classes = ['2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'u', 'v', 'w', 'y', 'z', ]
+img_dir = "mix_set"
+txt_dir = "mix_set"
+classes = ['2', '3', '4', '5', '6', '7', '8', '9',
+           'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'u', 'v', 'w', 'y', 'z', ]
 imgs = os.listdir(img_dir)
+imgs = [name for name in imgs if any(name.lower().endswith(f".{ext}") for ext in ["png", "jpg"])]
 
 for img in imgs:
     label, _ = os.path.splitext(img)
@@ -16,7 +18,7 @@ for img in imgs:
                 if len(data) >= 5:
                     bboxes.append(data[1:5])
                 else:
-                    print("长度不足")
+                    print(txt_dir, label + ".txt" + "：长度不足")
                     continue
             if len(bboxes) == 0:
                 raise KeyError(txt_dir, label + ".txt" + "：文件bbox无效")
