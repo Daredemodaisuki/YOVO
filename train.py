@@ -32,11 +32,11 @@ def train_yolo_model(dataset_dir, dataset_yaml, model_path, name, epochs=50, img
 def main():
     root = os.path.abspath(os.path.dirname(__file__))
 
-    train_yolo_model(dataset_dir=os.path.join(root, "dataset/annotated_Ganji_remixed"),
+    train_yolo_model(dataset_dir=os.path.join(root, "dataset/annotated_Pseudo_Ganji_4char_2(after_round3_final)"),
                      dataset_yaml="data.yaml",
-                     model_path='yaml/yolov8n (nc=29) - 去小核 - C2fFaster.yaml',
-                     name='yolo_origin去小核C2fFasrer-realGanji_250',  # 文件夹名称
-                     epochs=250,
+                     model_path='yaml/yolov8n (nc=36) - 去小核 - C2fFaster.yaml',
+                     name='yolo_origin去小核C2fFasrer-annotated_Pseudo_Ganji_150-lr0.01-batch16',  # 文件夹名称
+                     epochs=150,
                      imgsz=196,
                      batch=16)
                      # YOLOv8n (nc=62) - 去小核 - C2fFaster summary: 104 layers, 820,274 parameters, 820,258 gradients, 5.3 GFLOPs
