@@ -14,6 +14,7 @@ dataset/Pseudo_Ganji_4char_2(after_round2)【基于使用白底的round2，作�
 dataset/Pseudo_Ganji_4char_2(after_round2)/
 dataset/Pseudo_Ganji_4char_2(after_round3_final)/
 dataset/Pseudo_Ganji_4char_2(after_round4)/
+dataset/annotated_Ganji/
 PseudoGanjiToReal/rounds/train_set/
 PseudoGanjiToReal/rounds/test_set/
 PseudoGanjiToReal/train_set/
