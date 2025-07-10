@@ -17,7 +17,10 @@ def train_yolo_model(dataset_dir, dataset_yaml, model_path, name, epochs=50, img
         imgsz=imgsz,
         batch=batch,
         name=name,
-        project="runs/{addr}/detect".format(addr="remote" if remote else "local")
+        project="runs/{addr}/detect".format(addr="remote" if remote else "local",
+        fliplr=0.0,
+        lr0=0.0001,
+        lrf=0.0001)
     )
 
     # print(model1.info)
@@ -28,13 +31,13 @@ def train_yolo_model(dataset_dir, dataset_yaml, model_path, name, epochs=50, img
 def main():
     root = os.path.abspath(os.path.dirname(__file__))
 
-    train_yolo_model(dataset_dir=os.path.join(root, "dataset/Pseudo_Ganji_4char_2(after_round4)"),
-                     dataset_yaml="data_Pseudo_Ganji.yaml",
-                     model_path='yaml/yolov8n (nc=62) - 去小核 - C2fFaster.yaml',
-                     name='yolo_origin去小核C2fFasrer-PGanji_2(after_round4)_80只区分是不是',  # 文件夹名称
-                     epochs=80,
+    train_yolo_model(dataset_dir=os.path.join(root, "dataset/annotated_Ganji"),
+                     dataset_yaml="data.yaml",
+                     model_path='yaml/yolov8n (nc=29) - 去小核 - C2fFaster.yaml',
+                     name='yolo_origin去小核C2fFasrer-realGanji_150',  # 文件夹名称
+                     epochs=250,
                      imgsz=196,
-                     batch=16)
+                     batch=8)
                      # YOLOv8n (nc=62) - 去小核 - C2fFaster summary: 104 layers, 820,274 parameters, 820,258 gradients, 5.3 GFLOPs
 
 
