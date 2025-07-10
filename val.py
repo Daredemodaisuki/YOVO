@@ -127,17 +127,17 @@ if __name__ == "__main__":
     # 检测
     # weight_model = "yolo_origin去小核C2fFasrer-PGanji_1_80"  # 分类
     # weight_model = "yolo_origin去小核C2fFasrer-PGanji_2_80只区分是不是"
-    weight_model = "yolo_origin去小核C2fFasrer-PGanji_2(after_round2)_80只区分是不是"
+    weight_model = "yolo_origin去小核C2fFasrer-PGanji_2(after_round3)_80只区分是不是"
     weights_path = "runs/remote/detect/" + weight_model + "/weights/best.pt"
 
     # img_dir = "images"
     # source_dir = "dataset/Pseudo_Ganji_4char/val/" + img_dir + "/"
     # img_dir = "test_x3"
     # source_dir = "captcha_img/dataset_semi-supervised-for-captcha/dataset/ganji-1/" + img_dir + "/"
-    img_dir = "ganji_train_x3"
+    img_dir = "ganji_test_x3"
     source_dir = "fonts/" + img_dir + "/"
 
-    output_dir = "runs/local/test/realGanji（只区分是不是，ganji_train_x3，after_round2，cof0.25iou0.5）" + img_dir + "-" + weight_model + str(time.mktime(time.localtime())) + "/"
+    output_dir = "runs/local/test/realGanji（只区分是不是，ganji_train_x3，after_round3，cof0.25iou0.5）" + img_dir + "-" + weight_model + str(time.mktime(time.localtime())) + "/"
     os.makedirs(output_dir, exist_ok=True)
     detect_images(weights_path, source_dir, output_dir)
 
