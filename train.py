@@ -28,10 +28,10 @@ def train_yolo_model(dataset_dir, dataset_yaml, model_path, name, epochs=50, img
 def main():
     root = os.path.abspath(os.path.dirname(__file__))
 
-    train_yolo_model(dataset_dir=os.path.join(root, "dataset/Pseudo_Ganji_4char_2(after_round2)"),
+    train_yolo_model(dataset_dir=os.path.join(root, "dataset/Pseudo_Ganji_4char_2(after_round3_final)"),
                      dataset_yaml="data_Pseudo_Ganji.yaml",
                      model_path='yaml/yolov8n (nc=62) - 去小核 - C2fFaster.yaml',
-                     name='yolo_origin去小核C2fFasrer-PGanji_2(after_round2)_80只区分是不是',  # 文件夹名称
+                     name='yolo_origin去小核C2fFasrer-PGanji_2(after_round3)_80只区分是不是',  # 文件夹名称
                      epochs=80,
                      imgsz=196,
                      batch=16)
