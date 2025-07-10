@@ -3,7 +3,7 @@ import shutil
 import glob
 
 # 配置常量
-ITERATION = 2  # 当前迭代次数
+ITERATION = 3  # 当前迭代次数
 
 CLASSES_TXT_PATH = "classes_only_char.txt"
 HISTORY_LOG_DIR = f"./rounds/"  # 历史记录目录
