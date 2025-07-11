@@ -1,8 +1,8 @@
 import torch
 
 # 定义字符集 (数字+大写字母)
-CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-# CHARSET = "23456789abcdefghklnmprstuvwyz"  # Ganji
+# CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+CHARSET = "23456789abcdefghklnmprstuvwyz"  # Ganji
 NUM_CHARS = len(CHARSET)
 
 

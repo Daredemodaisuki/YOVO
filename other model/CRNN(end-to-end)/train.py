@@ -10,12 +10,12 @@ from tqdm import tqdm
 
 # 配置参数
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-BATCH_SIZE = 32
-LR = 0.0007
+BATCH_SIZE = 16
+LR = 0.0015
 EPOCHS = 160
-TRAIN_DIR = 'dataset/4char/train/images'
-VAL_DIR =   'dataset/4char/val/images'
-SAVE_DIR = 'other model/CRNN(end-to-end)/runs/remote/6-是改了什么导致Ganji不行吗？重测4训验证模型有效性'
+TRAIN_DIR = 'dataset/annotated_Ganji_remixed/train/images'
+VAL_DIR =   'dataset/annotated_Ganji_remixed/val/images'
+SAVE_DIR = 'other model/CRNN(end-to-end)/runs/remote/5-Ganji_remixed'
 LOG_FILE = os.path.join(SAVE_DIR, 'recording.txt')
 os.makedirs(SAVE_DIR, exist_ok=True)
 
