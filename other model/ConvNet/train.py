@@ -14,10 +14,11 @@ import difflib
 # 配置参数
 class Config:
     # 数据路径
-    TRAIN_DIR = "dataset/4char/train/images"
-    VAL_DIR = "dataset/4char/val/images"
-    SAVE_DIR = "other model/ConvNet/runs/remote/2"
-    LOG_FILE = "other model/ConvNet/runs/remote/2/recording.txt"
+    TRAIN_DIR = "dataset/annotated_Ganji/train/images"
+    VAL_DIR = "dataset/annotated_Ganji/val/images"
+    SAVE_DIR = "other model/ConvNet/runs/remote/annotated_Ganji-origional"
+    LOG_FILE = "other model/ConvNet/runs/remote/annotated_Ganji-origional/recording.txt"
+    # 11号凌晨是在remix上做的
 
     # 训练参数
     NUM_EPOCHS = 250
@@ -27,9 +28,10 @@ class Config:
     NUM_WORKERS = 4
 
     # 模型参数
-    NUM_CHARS = 62  # A-Z, a-z, 0-9
+    NUM_CHARS = 36  # A-Z（去除）, a-z, 0-9
     NUM_POSITIONS = 4  # 4个字符
-    CHAR_SET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    CHAR_SET = "abcdefghijklmnopqrstuvwxyz0123456789"  # 大写最前面ABCDEFGHIJKLMNOPQRSTUVWXYZ
+    # 注意57行文件名输入
 
     # 设备
     DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -50,8 +52,12 @@ class CAPTCHADataset(Dataset):
         image = Image.open(img_path).convert('RGB')
 
         # 从文件名提取标签 (第一个"_"前的部分)
+        # filename = self.image_files[idx]
+        # label_str = filename.split('_')[0]
+
+        # 从文件名提取标签 (第一个"."前的部分)
         filename = self.image_files[idx]
-        label_str = filename.split('_')[0]
+        label_str = filename.split('.')[0].lower()
 
         # 将字符标签转换为数字索引
         char_to_idx = {char: i for i, char in enumerate(Config.CHAR_SET)}

@@ -25,6 +25,7 @@ for img in imgs:
                     continue
             if len(bboxes) == 0:
                 raise KeyError(txt_dir, txt_name + ".txt" + "：文件bbox无效")
+        bboxes.sort(key=lambda x: x[0])  # Bbox按照x坐标排序！！！！！
         # 写clss
         with open(os.path.join(txt_dir, txt_name + ".txt"), 'w') as txt:
             annotation = []
