@@ -139,13 +139,13 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs, device, 
                             "Train Loss: {train_loss} | Val Loss: {val_loss}"
                             " | Val Acc: {val_acc}".format(epoch=epoch + 1, num_epochs=num_epochs,
                                                            train_loss=train_loss, val_loss=val_loss, val_acc=val_acc),
-                            "other model/multiview/runs/remote/recording.txt")
+                            "other model/multiview/runs/remote/4-real_Ganji_mixed/recording.txt")
 
         # 保存最佳模型
         if val_acc > best_val_acc:
             best_val_acc = val_acc
             torch.save(model.state_dict(),
-                       'other model/multiview/runs/remote/best_model_{epoch}_val-acc{acc}.pth'.format(epoch=epoch + 1,
+                       'other model/multiview/runs/remote/4-real_Ganji_mixed/best_model_{epoch}_val-acc{acc}.pth'.format(epoch=epoch + 1,
                                                                                                acc=val_acc))
             print('Saved best model!')
 
@@ -153,11 +153,11 @@ def train_model(model, train_loader, val_loader, optimizer, num_epochs, device, 
 
 
 if __name__ == '__main__':
-    train_dir = "dataset/3-6char/train/images"
-    val_dir = "dataset/3-6char/val/images"
-    batch_size = 32
+    train_dir = "dataset/annotated_Ganji_remixed/train/images"
+    val_dir =   "dataset/annotated_Ganji_remixed/val/images"
+    batch_size = 16
     epochs = 250
-    learning_rate = 0.0001
+    learning_rate = 0.001
 
     # 检查目录是否存在
     if not os.path.exists(train_dir):
@@ -171,8 +171,10 @@ if __name__ == '__main__':
     print(f"训练轮数: {epochs}")
     print(f"学习率: {learning_rate}")
 
-    char_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-    img_size = (100, 200)  # 图像尺寸
+    # char_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+    char_set = "23456789abcdefghklnmprstuvwyz"  # Ganji
+    # img_size = (100, 200)  # 图像尺寸
+    img_size = (36, 120)  # 图像尺寸
     num_views = 3  # 三种处理视图
 
     # 准备数据集
