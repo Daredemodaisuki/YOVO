@@ -18,19 +18,24 @@ class CaptchaDataset(Dataset):
 
         # 构建字符到索引的映射
         self.char2idx = {}
-        idx = 0
-        # 数字0-9
-        for i in range(10):
-            self.char2idx[str(i)] = idx
-            idx += 1
-        # 大写字母A-Z
-        for i in range(65, 91):
-            self.char2idx[chr(i)] = idx
-            idx += 1
-        # 小写字母a-z
-        for i in range(97, 123):
-            self.char2idx[chr(i)] = idx
-            idx += 1
+        # idx = 0
+        # # 数字0-9
+        # for i in range(10):
+        #     self.char2idx[str(i)] = idx
+        #     idx += 1
+        # # 大写字母A-Z
+        # for i in range(65, 91):
+        #     self.char2idx[chr(i)] = idx
+        #     idx += 1
+        # # 小写字母a-z
+        # for i in range(97, 123):
+        #     self.char2idx[chr(i)] = idx
+        #     idx += 1
+        
+        # Ganji
+        ganji = ['2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'u', 'v', 'w', 'y', 'z', ]
+        for i in range(len(ganji)):
+            self.char2idx[ganji[i]] = i
 
     def __len__(self):
         return len(self.image_files)
@@ -42,7 +47,8 @@ class CaptchaDataset(Dataset):
 
         # 从文件名提取标签 (第一个'_'前的内容)
         filename = self.image_files[idx]
-        label_str = filename.split('_')[0]
+        label_str, _ = os.path.splitext(filename)
+        label_str = label_str.split('_')[0]
 
         # 确保标签长度正确
         if len(label_str) != Config.num_chars:

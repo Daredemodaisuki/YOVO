@@ -11,11 +11,11 @@ from tqdm import tqdm
 # 配置参数
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 BATCH_SIZE = 32
-LR = 0.00035
+LR = 0.0007
 EPOCHS = 160
 TRAIN_DIR = 'dataset/4char/train/images'
-VAL_DIR = 'dataset/4char/val/images'
-SAVE_DIR = 'other model/RCNN(end-to-end)/runs/remote/4-重新4训'
+VAL_DIR =   'dataset/4char/val/images'
+SAVE_DIR = 'other model/CRNN(end-to-end)/runs/remote/6-是改了什么导致Ganji不行吗？重测4训验证模型有效性'
 LOG_FILE = os.path.join(SAVE_DIR, 'recording.txt')
 os.makedirs(SAVE_DIR, exist_ok=True)
 
@@ -49,7 +49,7 @@ def train_epoch(model, data_loader, optimizer, device):
     total = 0
 
     train_loop = tqdm(data_loader, desc=f"Epoch {epoch + 1}/{EPOCHS} [Train]", leave=True)
-    for images, targets, target_lengths in train_loop:
+    for images, targets, target_lengths, _ in train_loop:  # _=image_name
         images = images.to(device)
         targets = targets.to(device)
         target_lengths = target_lengths.to(device)
@@ -106,7 +106,7 @@ def validate(model, data_loader, device):
 
     val_loop = tqdm(data_loader, desc=f"Epoch {epoch + 1}/{EPOCHS} [Val]", leave=True)
     with torch.no_grad():
-        for images, targets, target_lengths in val_loop:
+        for images, targets, target_lengths, _ in val_loop:  # _=img_name
             images = images.to(device)
             targets = targets.to(device)
             target_lengths = target_lengths.to(device)

@@ -14,10 +14,10 @@ import difflib
 # 配置参数
 class Config:
     # 数据路径
-    TRAIN_DIR = "dataset/annotated_Ganji/train/images"
-    VAL_DIR = "dataset/annotated_Ganji/val/images"
-    SAVE_DIR = "other model/ConvNet/runs/remote/annotated_Ganji-origional"
-    LOG_FILE = "other model/ConvNet/runs/remote/annotated_Ganji-origional/recording.txt"
+    TRAIN_DIR = "dataset/annotated_Ganji_remixed/train/images"
+    VAL_DIR = "dataset/annotated_Ganji_remixed/val/images"
+    SAVE_DIR = "other model/ConvNet/runs/remote/annotated_Ganji_remixed"
+    LOG_FILE = "other model/ConvNet/runs/remote/annotated_Ganji_remixed/recording.txt"
     # 11号凌晨是在remix上做的
 
     # 训练参数

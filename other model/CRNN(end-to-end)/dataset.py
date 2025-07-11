@@ -14,6 +14,7 @@ class CaptchaDataset(Dataset):
         self.charset = charset
         self.max_label_len = max_label_len
         self.transform = transforms.Compose([
+            transforms.Resize((100, 200)),  # 先 resize，高度100，宽度200
             transforms.ToTensor(),
             transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
         ])
@@ -24,7 +25,8 @@ class CaptchaDataset(Dataset):
     def __getitem__(self, idx):
         img_name = self.image_files[idx]
         # 文件名格式: "label_otherinfo.jpg" - 第一个"_"前是标签
-        label = img_name.split('_')[0]
+        label, _ = os.path.splitext(img_name)
+        label = label.split('_')[0]
 
         # 加载图像
         img_path = os.path.join(self.image_dir, img_name)

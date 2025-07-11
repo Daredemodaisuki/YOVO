@@ -7,7 +7,8 @@ class Config:
     img_height = 100
     target_width = 192  # 论文目标尺寸
     target_height = 64
-    num_classes = 62  # 大小写字母+数字 (26+26+10)
+    # num_classes = 62  # 大小写字母+数字 (26+26+10)
+    num_classes = 29  # 真实赶集网
     num_chars = 4
 
     # 模型参数
@@ -22,9 +23,9 @@ class Config:
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     # 路径设置
-    train_dir = "dataset/4char/train/images/"
-    val_dir = "dataset/4char/val/images/"
-    save_dir = "other model/Adaptive CAPTCHA/runs/remote/2-1上微调/"
+    train_dir = "dataset/annotated_Ganji_remixed/train/images/"
+    val_dir =   "dataset/annotated_Ganji_remixed/val/images/"
+    save_dir = "other model/Adaptive CAPTCHA/runs/remote/3-real_Ganji_mixed/"
 
 
 config = Config()
