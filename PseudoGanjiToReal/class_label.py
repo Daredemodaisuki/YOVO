@@ -1,11 +1,11 @@
 import os
 
-img_dir = "/workspace/dataset/annotated_Pseudo_Ganji_4char_2(after_round3_final)/train/images"
-txt_dir = "/workspace/dataset/annotated_Pseudo_Ganji_4char_2(after_round3_final)/train/labels"
-# classes = ['2', '3', '4', '5', '6', '7', '8', '9',
-#            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'u', 'v', 'w', 'y', 'z', ]
-classes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-           'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ]
+img_dir = "/workspace/dataset/annotated_Ganji_remixed/train/images"
+txt_dir = "/workspace/dataset/annotated_Ganji_remixed/train/labels"
+classes = ['2', '3', '4', '5', '6', '7', '8', '9',
+           'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'k', 'l', 'm', 'n', 'p', 'r', 's', 't', 'u', 'v', 'w', 'y', 'z', ]
+# classes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+#            'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ]
 imgs = os.listdir(img_dir)
 imgs = [name for name in imgs if any(name.lower().endswith(f".{ext}") for ext in ["png", "jpg"])]
 

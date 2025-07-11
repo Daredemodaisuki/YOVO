@@ -32,9 +32,9 @@ def train_yolo_model(dataset_dir, dataset_yaml, model_path, name, epochs=50, img
 def main():
     root = os.path.abspath(os.path.dirname(__file__))
 
-    train_yolo_model(dataset_dir=os.path.join(root, "dataset/annotated_Ganji"),
+    train_yolo_model(dataset_dir=os.path.join(root, "dataset/annotated_Ganji_remixed"),
                      dataset_yaml="data.yaml",
-                     model_path='yaml/yolov8n (nc=36) - 去小核 - C2fFaster.yaml',
+                     model_path='yaml/yolov8n (nc=62) - 去小核 - C2fFaster.yaml',
                      name='yolo_origin去小核C2fFasrer-annotated_Ganji_150-lr0.01-batch16',  # 文件夹名称
                      epochs=150,
                      imgsz=196,
